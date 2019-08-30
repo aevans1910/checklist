@@ -8,8 +8,6 @@ def create(item):
 def read(index):
     return checklist[index]
 
-# checklist = []
-
 #Update
 def update(index, item):
     checklist[index] = item
@@ -17,6 +15,13 @@ def update(index, item):
 #Destroy
 def destroy (index):
     checklist.pop(index)
+
+#User input
+def user_input(prompt):
+    #the input function will display a message in the 
+    #terminal and wait for user input
+    user_input = input (prompt)
+    return user_input
 
 #List all items in list
 def list_all_items():
@@ -27,13 +32,14 @@ def list_all_items():
 
 #Marks items as completed
 def mark_completed():  
-    index = 0  
     for list_item in checklist:
         print ("√ {}".format(list_item))
-        index += 1
+
+# mark_completed()
 
 #Select
-def select (function_code):
+def select(function_code):
+
     #Create item
     if function_code == "C":
         input_item = user_input ("Input item:")
@@ -42,48 +48,54 @@ def select (function_code):
     #Read item
     elif function_code == "R":
         item_index = user_input("Index Number?")
-
-        read(int(item_index))
+        item = read(int(item_index))  
+        print(item)
 
     #Print all items
     elif function_code == "P":
         list_all_items()
 
+    #Quitting
+    elif function_code == "Q":
+        return False
+
     #Catch all
     else:
         print("Unknown Option")
 
-#User input
-def user_input(prompt):
-    #the input function will display a message in the 
-    #terminal and wait for user input
-    user_input = input (prompt)
-    return user_input
+    return True
 
-#Testing
-def test():
-    create("purple sox")
-    create("red cloak")
+running = True
+while running:
+    selection = user_input(
+        "Press C to add to list, R to read from list, P to display list and Q to quit")
+    running = select(selection) 
 
-    print(read(0))
-    print(read(1))
+# #Testing
+# def test():
+#     create("purple sox")
+#     create("red cloak")
 
-    update(0, "purple socks")
-    destroy(1)
+#     print(read(0))
+#     print(read(1))
 
-    print(read(0))
+#     update(0, "purple socks")
+#     destroy(1)
+
+#     print(read(0))
     
-    list_all_items()
+#     list_all_items()
 
-    mark_completed()
+#     mark_completed()
 
-    select("C")
-    list_all_items()
-    select("R")
-    list_all_items()
+#     select("C")
+#     list_all_items()
+#     select("R")
+#     list_all_items()
 
-    user_value = user_input("Please enter a value:")
-    print(user_value)
+#     user_value = user_input("Please enter a value:")
+#     print(user_value)
 
-test()
+# test()
+mark_completed()
 
