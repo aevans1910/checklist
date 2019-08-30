@@ -1,3 +1,5 @@
+checklist = list ()
+
 #Create
 def create(item):
     checklist.append(item)
@@ -6,7 +8,7 @@ def create(item):
 def read(index):
     return checklist[index]
 
-checklist = []
+# checklist = []
 
 #Update
 def update(index, item):
@@ -30,13 +32,6 @@ def mark_completed():
         print ("√ {}".format(list_item))
         index += 1
 
-#User input
-def user_input(prompt):
-    #the input function will display a message in the 
-    #terminal and wait for user input
-    user_input = input (prompt)
-    return user_input
-
 #Select
 def select (function_code):
     #Create item
@@ -48,7 +43,7 @@ def select (function_code):
     elif function_code == "R":
         item_index = user_input("Index Number?")
 
-        read(item_index)
+        read(int(item_index))
 
     #Print all items
     elif function_code == "P":
@@ -58,9 +53,12 @@ def select (function_code):
     else:
         print("Unknown Option")
 
-        
-
-
+#User input
+def user_input(prompt):
+    #the input function will display a message in the 
+    #terminal and wait for user input
+    user_input = input (prompt)
+    return user_input
 
 #Testing
 def test():
@@ -83,6 +81,9 @@ def test():
     list_all_items()
     select("R")
     list_all_items()
+
+    user_value = user_input("Please enter a value:")
+    print(user_value)
 
 test()
 
