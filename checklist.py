@@ -1,5 +1,5 @@
-#I would like to thank Ben Laferty for helping me with many of the steps in this 
-#and Jess for helping me get unblocked from bugs
+#I would like to thank Ben Laferty for helping me with many of the steps in this, Jess 
+# Trin for helping me with user input errors, and Jess for helping me get unblocked from bugs
 
 checklist = list ()
 
@@ -47,6 +47,7 @@ def unmark_completed(item):
 
 #Select
 def select(function_code):
+    function_code = function_code.upper()
 
     #Create item
     if function_code == "A":
@@ -95,32 +96,3 @@ while running:
         "Press A to add to list, U to update items, R to read from list, C to uncheck items off the list, P to display list, D to delete items and Q to quit")
     running = select(selection) 
     mark_completed()
-
-# #Testing
-# def test():
-#     create("purple sox")
-#     create("red cloak")
-
-#     print(read(0))
-#     print(read(1))
-
-#     update(0, "purple socks")
-#     destroy(1)
-
-#     print(read(0))
-    
-#     list_all_items()
-
-#     mark_completed()
-
-#     select("C")
-#     list_all_items()
-#     select("R")
-#     list_all_items()
-
-#     user_value = user_input("Please enter a value:")
-#     print(user_value)
-
-# test()
-
-
