@@ -96,3 +96,38 @@ while running:
         "Press A to add to list, U to update items, R to read from list, C to uncheck items off the list, P to display list, D to delete items and Q to quit")
     running = select(selection) 
     mark_completed()
+
+# Test function.  Not needed except for testing.
+
+
+# def test():
+#     # Create
+#     create("purple sox")
+#     create("red cloak")
+
+#     print(read(0))
+#     print(read(1))
+
+#     # Update and destroy
+#     update(0, "purple socks")
+#     destroy(1)
+#     print(read(0))
+
+#     print(read(1))
+
+#     # testing marking complete and incomplete
+#     print(mark_completed(0))
+#     print(read(0))
+#     print(unmark_completed(0))
+#     print(read(0))
+
+#     # testing select
+#     select("A")
+#     select("U")
+#     select("R")
+#     select("C")
+#     select("P")
+#     select("D")
+#     select("Q")
+
+# test()
