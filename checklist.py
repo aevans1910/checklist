@@ -1,3 +1,6 @@
+#I would like to thank Ben Laferty for helping me with many of the steps in this 
+#and Jess for helping me get unblocked from bugs
+
 checklist = list ()
 
 #Create
@@ -35,25 +38,46 @@ def mark_completed():
     for list_item in checklist:
         print ("√ {}".format(list_item))
 
-# mark_completed()
+#Uncheck items
+def unmark_completed(item):
+    index = 0
+    for list_item in checklist:
+        print ("{} {}".format(index, list_item))
+        index += 1
 
 #Select
 def select(function_code):
 
     #Create item
-    if function_code == "C":
+    if function_code == "A":
         input_item = user_input ("Input item:")
         create(input_item)
 
+    #Update
+    elif function_code == "U":
+        update_index =  user_input("Index Number? ")
+        updated_item = user_input("New item name: ")
+        update(int(update_index), updated_item)
+
     #Read item
     elif function_code == "R":
-        item_index = user_input("Index Number?")
+        item_index = user_input("Index number? ")
         item = read(int(item_index))  
         print(item)
+ 
+    #Unmarking items
+    elif function_code == "C":
+        checked_index = user_input("Index number? ")
+        unmark_completed(checked_index)
 
     #Print all items
     elif function_code == "P":
         list_all_items()
+
+    #Destroy items
+    elif function_code == "D":
+       select_index = user_input("Index number? ")
+       destroy (int(select_index))
 
     #Quitting
     elif function_code == "Q":
@@ -68,8 +92,9 @@ def select(function_code):
 running = True
 while running:
     selection = user_input(
-        "Press C to add to list, R to read from list, P to display list and Q to quit")
+        "Press A to add to list, U to update items, R to read from list, C to uncheck items off the list, P to display list, D to delete items and Q to quit")
     running = select(selection) 
+    mark_completed()
 
 # #Testing
 # def test():
@@ -97,5 +122,5 @@ while running:
 #     print(user_value)
 
 # test()
-mark_completed()
+
 
